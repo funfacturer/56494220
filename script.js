@@ -1,6 +1,6 @@
 let currentMatchday = 1;
 const LEAGUE_SHORT = "bl1";
-const SEASON = 2024;
+const SEASON = new Date().getMonth() < 6 ? new Date().getFullYear() - 1 : new Date().getFullYear();
 
 // Umschalten zw Spieltagen und Tabelle 
 function switchBundesligaSubView(subViewId, buttonElement) {
