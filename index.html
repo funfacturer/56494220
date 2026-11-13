@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="aple-mobile-web-app-title" content="SportApp">
+        <title>Sport App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Ansichten -->
+        <div id="view-b1" class="view active">
+            <h1>Bundesliga</h1>
+        </div>
+        <div id="view-b2" class="view">
+            <h1>2. Bundesliga</h1>
+        </div>
+        <div id="view-b3" class="view">
+            <h1>3. Bundesliga</h1>
+        </div>
+        <div id="view-f1" class="view">
+            <h1>Formel 1</h1>
+        </div>
+        <!-- Navigations Buttons unten -->
+         <nav class="tab-bar">
+            <button class="tab-button active" onclick="switchTab('view-b1', this)">Bundesliga</button>
+            <button class="tab-button" onclick="switchTab('view-b2', this)">2. Bundesliga</button>
+            <button class="tab-button" onclick="switchTab('view-b3', this)">3. Bundesliga</button>
+            <button class="tab-button" onclick="switchTab('view-f1', this)">Formel 1</button>
+         </nav>
+         <script src="script.js"></script>
+    </body>
+</html>
