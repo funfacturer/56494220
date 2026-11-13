@@ -12,24 +12,31 @@
         <link rel="icon" type="image/png" href="icon.png">
     </head>
     <body>
+        <!-- BUNDESLIGA ANSICHT-->
         <main class="swipe-container">
             <section id="view-b1" class="view">
                 <div class="segment-control">
                     <button class="segment-btn active" onclick="switchBundesligaSubView('b1-matches', this)">Spieltage</button>
                     <button class="segment-btn" onclick="switchBundesligaSubView('b1-table', this)">Tabelle</button>
                 </div>
+
+                <!-- SPIELTAGE ANSICHT-->
                 <div id="b1-matches" class="sub-view active">
-                    <div class="match-card">
-                        <div class="match-team">FC Bayern München</div>
-                        <div class="match-score">- : -</div>
-                        <div class="match-team">Borussia Dortmund</div>
+                    <!-- Spieltag Auswahl -->
+                    <div class="matchday-picker">
+                        <button class="nav-btn" id="b1-prev-day" onclick="changeMatchday(-1)">&lsaquo;</button>
+                        <select id="b1-day-select" class="day-select" onchange="onMatchdaySelect(this.value)">
+                            <!-- Wird per JS mit 1. bis 34. Spieltag befüllt -->
+                        </select>
+                        <button class="nav-btn" id="b1-next-day" onclick="changeMatchday(1)">&rsaquo;</button>
                     </div>
-                    <div class="match-card">
-                        <div class="match-team">Bayer Leverkusen</div>
-                        <div class="match-score">- : -</div>
-                        <div class="match-team">RB Leipzig</div>
+                    <!-- Ein Spiel -->
+                    <div id="b1-matches-list">
+                        <div class="loading-state">Lade aktuellen Spieltag...</div>
                     </div>
                 </div>
+
+                <!-- TABELLEN ANSICHT -->
                 <div id="b1-table" class="sub-view">
                     <div class="table-card">
                         <table class="ios-table">

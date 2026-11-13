@@ -15,7 +15,7 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
 }
 
-/* Horizontaler Wisch-Container zwischen den 4 Sportarten */
+/* Horizontaler Wisch-Container */
 .swipe-container {
   display: flex;
   width: 100vw;
@@ -31,7 +31,7 @@ html, body {
   display: none;
 }
 
-/* Hauptansichten (Bundesliga, 2. Liga, etc.) */
+/* Ansichten */
 .view {
   flex: 0 0 100vw;
   width: 100vw;
@@ -45,13 +45,13 @@ html, body {
   padding-right: 16px;
 }
 
-/* Apple Segmented Control (Wippe oben) */
+/* Segmented Control oben */
 .segment-control {
   display: flex;
   background-color: rgba(118, 118, 128, 0.12);
   border-radius: 9px;
   padding: 2px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .segment-btn {
@@ -73,7 +73,6 @@ html, body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-/* Umschaltbare Unteransichten (Spieltage / Tabelle) */
 .sub-view {
   display: none;
 }
@@ -82,38 +81,108 @@ html, body {
   display: block;
 }
 
-/* Karten-Design für Spieltage */
+/* Spieltag-Wähler (Pfeile & Selektor) */
+.matchday-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: #007AFF;
+  cursor: pointer;
+  padding: 4px 10px;
+  touch-action: manipulation;
+}
+
+.nav-btn:disabled {
+  color: #C7C7CC;
+  cursor: default;
+}
+
+.day-select {
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #000000;
+  outline: none;
+  text-align: center;
+  text-align-last: center;
+  cursor: pointer;
+}
+
+/* Match-Karten */
 .match-card {
   background-color: #FFFFFF;
   border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 15px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.match-header {
+  font-size: 11px;
+  color: #8E8E93;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.match-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .match-team {
   font-weight: 500;
+  font-size: 14px;
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.match-team:last-child {
+.match-team.away {
+  justify-content: flex-end;
   text-align: right;
+}
+
+.team-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .match-score {
   font-weight: 600;
+  font-size: 14px;
   padding: 4px 10px;
   background-color: #F2F2F7;
   border-radius: 6px;
-  margin: 0 12px;
+  margin: 0 10px;
   white-space: nowrap;
 }
 
-/* Karten-Design für die Tabelle */
+/* Status Loading / Error */
+.loading-state {
+  text-align: center;
+  color: #8E8E93;
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+/* Tabelle */
 .table-card {
   background-color: #FFFFFF;
   border-radius: 12px;
@@ -146,24 +215,7 @@ html, body {
   border-bottom: none;
 }
 
-/* Tabellenspalten-Formatierung */
-.col-pos, .clo-pos { 
-  width: 28px; 
-  color: #8E8E93; 
-  text-align: center; 
-}
-
-.col-club { 
-  text-align: left; 
-  font-weight: 500; 
-}
-
-.col-num { 
-  width: 36px; 
-  text-align: center; 
-}
-
-.col-num.bold { 
-  font-weight: 700; 
-  color: #000000; 
-}
+.col-pos { width: 28px; color: #8E8E93; text-align: center; }
+.col-club { text-align: left; font-weight: 500; }
+.col-num { width: 36px; text-align: center; }
+.col-num.bold { font-weight: 700; color: #000000; }
