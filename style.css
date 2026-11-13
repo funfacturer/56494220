@@ -12,9 +12,10 @@ html, body {
   height: 100%;
   overflow: hidden;
   background-color: #F2F2F7;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
 }
 
-/* Horizontaler Wisch-Container mit nativer Apple-Physik */
+/* Horizontaler Wisch-Container zwischen den 4 Sportarten */
 .swipe-container {
   display: flex;
   width: 100vw;
@@ -23,15 +24,14 @@ html, body {
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Versteckt Scrollbalken auf Firefox */
+  scrollbar-width: none;
 }
 
-/* Scrollbalken in Safari / iOS ausblenden */
 .swipe-container::-webkit-scrollbar {
   display: none;
 }
 
-/* Jede Ansicht nimmt genau die Bildschirmbreite ein */
+/* Hauptansichten (Bundesliga, 2. Liga, etc.) */
 .view {
   flex: 0 0 100vw;
   width: 100vw;
@@ -39,8 +39,131 @@ html, body {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   overflow-y: auto;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: calc(env(safe-area-inset-top) + 12px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
   padding-left: 16px;
   padding-right: 16px;
+}
+
+/* Apple Segmented Control (Wippe oben) */
+.segment-control {
+  display: flex;
+  background-color: rgba(118, 118, 128, 0.12);
+  border-radius: 9px;
+  padding: 2px;
+  margin-bottom: 16px;
+}
+
+.segment-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 7px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.segment-btn.active {
+  background-color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Umschaltbare Unteransichten (Spieltage / Tabelle) */
+.sub-view {
+  display: none;
+}
+
+.sub-view.active {
+  display: block;
+}
+
+/* Karten-Design für Spieltage */
+.match-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.match-team {
+  font-weight: 500;
+  flex: 1;
+}
+
+.match-team:last-child {
+  text-align: right;
+}
+
+.match-score {
+  font-weight: 600;
+  padding: 4px 10px;
+  background-color: #F2F2F7;
+  border-radius: 6px;
+  margin: 0 12px;
+  white-space: nowrap;
+}
+
+/* Karten-Design für die Tabelle */
+.table-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.ios-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.ios-table th {
+  color: #8E8E93;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 4px;
+  border-bottom: 0.5px solid rgba(60, 60, 67, 0.15);
+}
+
+.ios-table td {
+  padding: 12px 4px;
+  border-bottom: 0.5px solid rgba(60, 60, 67, 0.1);
+}
+
+.ios-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tabellenspalten-Formatierung */
+.col-pos, .clo-pos { 
+  width: 28px; 
+  color: #8E8E93; 
+  text-align: center; 
+}
+
+.col-club { 
+  text-align: left; 
+  font-weight: 500; 
+}
+
+.col-num { 
+  width: 36px; 
+  text-align: center; 
+}
+
+.col-num.bold { 
+  font-weight: 700; 
+  color: #000000; 
 }

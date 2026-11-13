@@ -13,7 +13,55 @@
     </head>
     <body>
         <main class="swipe-container">
-            <section id="view-b1" class="view"></section>
+            <section id="view-b1" class="view">
+                <div class="segment-control">
+                    <button class="segment-btn active" onclick="switchBundesligaSubView('b1-matches', this)">Spieltage</button>
+                    <button class="segment-btn" onclick="switchBundesligaSubView('b1-table', this)">Tabelle</button>
+                </div>
+                <div id="b1-matches" class="sub-view active">
+                    <div class="match-card">
+                        <div class="match-team">FC Bayern München</div>
+                        <div class="match-score">- : -</div>
+                        <div class="match-team">Borussia Dortmund</div>
+                    </div>
+                    <div class="match-card">
+                        <div class="match-team">Bayer Leverkusen</div>
+                        <div class="match-score">- : -</div>
+                        <div class="match-team">RB Leipzig</div>
+                    </div>
+                </div>
+                <div id="b1-table" class="sub-view">
+                    <div class="table-card">
+                        <table class="ios-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-pos">#</th>
+                                    <th class="col-club">Klub</th>
+                                    <th class="col-num">Sp</th>
+                                    <th class="col-num">Diff</th>
+                                    <th class="col-num">Pkt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-pos">1</td>
+                                    <td class="col-club">FC Bayern</td>
+                                    <td class="col-num">0</td>
+                                    <td class="col-num">0</td>
+                                    <td class="col-num bold">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-pos">2</td>
+                                    <td class="col-club">Bayer Leverkusen</td>
+                                    <td class="col-num">0</td>
+                                    <td class="col-num">0</td>
+                                    <td class="col-num bold">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
             <section id="view-b2" class="view"></section>
             <section id="view-b3" class="view"></section>
             <section id="view-f1" class="view"></section>
